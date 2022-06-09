@@ -3,11 +3,13 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
-  background-color: #343a40;
+  background-color: #f1faee;
   background-image: 'camera_icon.png';
-  color: #8d99ae;
+  color: #e63946;
 
   }
+  
+  
   img {
     background-color: #161616;
     justify-content: center;
@@ -25,21 +27,21 @@ button {
   
   text-align: center;
  
-  font-size: 11px;
+  font-size: 21px;
   margin: 4px 2px;
   
   width: 100px;
   height: 60px;
   z-index: 2;
   border-radius: 80px;
-  background: #22223b;
+  background: #e63946;
 }
 video {
   position: absolute;
   -ms-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   border-radius: 80px;
-  border: 6px dotted #8d99ae;
+  border: 8px dashed #e63946;
   left: 50%;
   top: 50%;
   z-index: 0;
@@ -49,7 +51,7 @@ canvas {
   
   top: 70%;
   border-radius: 80px;
-  border: 4px solid #edf2f4;
+  border: 4px solid #e63946;
   position: absolute;
   z-index: 1;
   left: 5%;
@@ -72,6 +74,7 @@ header h4{
   font-size: 2.6rem;
   font-family: 'Nunito', sans-serif;
   font-style: bold italic;
+  
 }
 
 /* Splash Screen*/
@@ -118,3 +121,5 @@ header h4{
   transition: ease-in-out 0.5s;
 }
 
+
+ 
