@@ -1,0 +1,120 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+  background-color: #343a40;
+  background-image: 'camera_icon.png';
+  color: #8d99ae;
+
+  }
+  img {
+    background-color: #161616;
+    justify-content: center;
+    
+  }
+button {
+
+  position: absolute;
+  top: 85%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  border: 6px solid #edf2f4;
+  color: white;
+  
+  text-align: center;
+ 
+  font-size: 11px;
+  margin: 4px 2px;
+  
+  width: 100px;
+  height: 60px;
+  z-index: 2;
+  border-radius: 80px;
+  background: #22223b;
+}
+video {
+  position: absolute;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  border-radius: 80px;
+  border: 6px dotted #8d99ae;
+  left: 50%;
+  top: 50%;
+  z-index: 0;
+}
+
+canvas {
+  
+  top: 70%;
+  border-radius: 80px;
+  border: 4px solid #edf2f4;
+  position: absolute;
+  z-index: 1;
+  left: 5%;
+  width: 25%;
+}
+
+header{
+  position: relative;
+  left: 0;
+  top: 0;
+  width: 1005;
+  height: 80px;
+  
+      }
+
+header h4{
+  position: absolute;
+  left: 10%;
+  bottom: 1rem;
+  font-size: 2.6rem;
+  font-family: 'Nunito', sans-serif;
+  font-style: bold italic;
+}
+
+/* Splash Screen*/
+
+.Intro {
+  position: fixed;
+  z-index: 3;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: #161616;
+  transition: 1s;
+}
+
+.logo-header{
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #161616;
+  font-size: x-large;
+}
+
+.logo{
+  position: relative;
+  display: inline-block;
+  bottom: -20%;
+  opacity: 0;
+  color: #ffffff;
+  background-color: #161616;
+  font-size: 300%;
+}
+
+.logo.active{
+  bottom: 0;
+  opacity: 1;
+  transition: ease-in-out 0.5s;
+}
+
+.logo.fade {
+  bottom: 150px;
+  opacity: 0;
+  transition: ease-in-out 0.5s;
+}
+
