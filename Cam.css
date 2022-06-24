@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+
 * {
   margin: 0;
   padding: 0.5%;
@@ -55,6 +57,8 @@ button {
   box-shadow: 2px 2px 4px #edede9;
   text-shadow: 1px 1px 2px #000000;
 }
+
+
 video {
   position: absolute;
   -ms-transform: translate(-50%, -50%);
@@ -133,6 +137,162 @@ header h4:hover {
 transform-style: preserve-3d;
 animation-direction: alternate-reverse;
   
+}
+/* Navigation bar
+     
+*/
+nav {
+  top: -50%;
+  
+}
+#active:checked ~ .wrapper{
+  clip-path: circle(75%);
+}
+.menu-btn{
+  position: absolute;
+  z-index: 2;
+  right: 20px;
+  /* left: 20px; */
+  top: 1%;
+  height: 50px;
+  width: 50px;
+  text-align: center;
+  line-height: 50px;
+  border-radius: 50%;
+  font-size: 20px;
+  color: #fff;
+  cursor: pointer;
+  display: none;
+  
+  /* background: linear-gradient(375deg, #1cc7d0, #2ede98); */
+  transition: all 0.3s ease-in-out;
+}
+@media (maxwidth:852px){
+  .menu-btn {
+    display: block;
+  }
+}
+
+#active:checked ~ .menu-btn{
+  background: #fff;
+  color: #4158d0;
+}
+#active:checked ~ .menu-btn i:before{
+  content: "\f00d";
+}
+.wrapper ul{
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  list-style: none;
+  text-align: center;
+}
+.wrapper ul li{
+  margin: 15px 0;
+}
+.wrapper ul li a{
+  color: none;
+  text-decoration: none;
+  font-size: 30px;
+  font-weight: 500;
+  padding: 5px 30px;
+  color: #fff;
+  position: relative;
+  line-height: 50px;
+  transition: all 0.3s ease;
+}
+.wrapper ul li a:after{
+  position: absolute;
+  content: "";
+  background: #fff;
+  width: 100%;
+  height: 50px;
+  left: 0;
+  border-radius: 50px;
+  transform: scaleY(0);
+  z-index: -1;
+  transition: transform 0.3s ease;
+}
+.wrapper ul li a:hover:after{
+  transform: scaleY(1);
+}
+.wrapper ul li a:hover{
+  color: #4158d0;
+}
+input[type="checkbox"]{
+  display: none;
+}
+
+.wrapper{
+  float: right;
+  height: 60px;
+  width: 55vw;
+  line-height: 60px;
+  border-radius: 50px;
+ ;
+}
+.wrapper nav{
+  position: relative;
+  display: flex;
+}
+.wrapper nav label{
+  flex: 1;
+  width: 100%;
+  z-index: 1;
+  cursor: pointer;
+}
+.wrapper nav label a{
+  position: relative;
+  z-index: 3;
+  color: #450920;
+
+  font-size: 21px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.wrapper nav #home:checked ~ label.home a,
+.wrapper nav #gallery:checked ~ label.gallery a,
+.wrapper nav #mirror:checked ~ label.mirror a,
+.wrapper nav #lights:checked ~ label.lights a,
+.wrapper nav #settings:checked ~ label.settings a{
+  color: #a53860;
+}
+.wrapper nav label a i{
+  font-size: 25px;
+  margin: 0 7px;
+}
+.wrapper nav .tab{
+  position: absolute;
+  height: 100%;
+  width: 20%;
+  left: 0;
+  bottom: 100%;
+  z-index: 0;
+  border-radius: 50px;
+  
+  transition: 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+.wrapper nav #gallery:checked ~ .tab{
+  left: 20%;
+}
+.wrapper nav #mirror:checked ~ .tab{
+  left: 40%;
+}
+.wrapper nav #lights:checked ~ .tab{
+  left: 60%;
+}
+.wrapper nav #settings:checked ~ .tab{
+  left: 80%;
+}
+.wrapper nav input{
+  display: none;
+}
+
+.drop{
+  font-size: 4px;
+  display: none;
 }
 
 /* Splash Screen*/
