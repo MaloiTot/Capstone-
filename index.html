@@ -4,43 +4,24 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <script src="//unpkg.com/alpinejs" defer></script>
+    <script
+    src="https://code.jquery.com/jquery-3.2.1.min.js"
+    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    crossorigin="anonymous"> defer</script>
     
     <script src="https://cdn.tailwindcss.com"></script>
-    <title>Document</title>
+    <title>Kamira</title>
     
  
 </head>
 <body>
-<div x-data
-    :class="$store.darkMode.on && 'bg-gray-800 text-white'" 
-    class="block mx-auto max-w-sm mt-6 bg-gray-50 p-4"> *******************
-    **************************************
-    I'm mad. *****************************
-    But I ain't stressing. True friends
-    </div>
+
+
     <div class="icon" >
-        <a href="Cam.html"><img src="camera_icon.png" width="25%" alt="IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII"></a>
-    </div> 
+      <a href="Cam.html"><img src="camera_icon.png" width="25%" alt=""></a>
+  </div> 
 
-    <button 
-    @click = "$store.darkMode.toggle()"
-    :class="$store.darkMode.on && 'bg-gray-700'"
-    class="block mt-4 text-xs bg-gray-200 px-4 py-2" >
-        toggle
-    </button>
-  <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.0/dist/alpine.min.js" defer></script>   
-
-   <script>
-    document.addEventListener('alpine:init', () => {
-       Alpine.store('darkMode', {
-         on: false,
-   
-         toggle() {
-           this.on = !this.on;
-         },
-       })
-        }) 
-      </script>
+  
 </body>
 </html>

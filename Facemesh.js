@@ -1,5 +1,5 @@
 
-
+/*
 const model = faceLandmarksDetection.SupportedModels.MediaPipeFaceMesh;
 const detectorConfig = {
   runtime: 'mediapipe', // or 'tfjs'
@@ -22,7 +22,7 @@ const faces = await detector.estimateFaces(image);
       keypoints: [
         {x: 406.53152857172876, y: 256.8054528661723, z: 10.2, name: "lips"},
         {x: 406.544237446397, y: 230.06933367750395, z: 8},
-        ...
+        
       ],
     }
   ]
@@ -71,7 +71,7 @@ const options = {
         mesh: [ // The 3D coordinates of each facial landmark.
             [92.07, 119.49, -17.54],
             [91.97, 102.52, -30.54],
-            ...
+            
         ],
         scaledMesh: [ // The 3D coordinates of each facial landmark, normalized.
             [322.32, 297.58, -17.54],
@@ -81,9 +81,9 @@ const options = {
             silhouette: [
             [326.19, 124.72, -3.82],
             [351.06, 126.30, -3.00],
-            ...
+            
             ],
-            ...
+            
         }
     }
 ]
@@ -97,39 +97,39 @@ facemesh.on('face', results => {
 
 
 
-/*
-const video = document.getElementById('video')
 
-  Promise.all([
-    faceapi.nets.tinyFaceDetector.loadFromUri('/Models'),
-    faceapi.nets.faceLandmark68Net.loadFromUri('/Models'),
-    faceapi.nets.faceRecognitionNet.loadFromUri('/Models'),
-    faceapi.nets.faceExpressionNet.loadFromUri('/Models'),
-  ]).then(startVideo)
 
-  function startVideo() {
-    navigator.getUserMedia(
-        {video: {}},
-        stream => video.srcObject = stream,
-        err => console.error(err)
-    )
-  }
 
-  video.addEventListener('play', () =>{
-    const canvas = faceapi.createCanvasfromMedia(video)
-    document.body.append(canvas)
-    const displaySize = { width: video.width, height: video.height}
-  faceapi.matchDimensions(canvas, displaySize)
+Promise.all([
+  faceapi.nets.tinyFaceDetector.loadFromUri('/models'),
+  faceapi.nets.faceLandmark68Net.loadFromUri('/models'),
+  faceapi.nets.faceRecognitionNet.loadFromUri('/models'),
+  faceapi.nets.faceExpressionNet.loadFromUri('/models')
+]).then(startVideo)
 
-    setInterval(async () => {
-    const detections = await faceapi.detectAllFaces(video, new
-    faceapi.TinyFaceDetectorOptions()).withFaceLandmarks().withFaceExpressions()
+function startVideo() {
+  navigator.getUserMedia(
+    { video: {} },
+    stream => video.srcObject = stream,
+    err => console.error(err)
+  )
+}
+
+video.addEventListener('play', () => {
+  const canvas1 = faceapi.createCanvasFromMedia(video)
+  document.body.append(canvas1)
+  const displaySize = { width: video.width, height: video.height }
+  faceapi.matchDimensions(canvas1, displaySize)
+  setInterval(async () => {
+    const detections = await faceapi.detectAllFaces(video, new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks().withFaceExpressions()
     const resizedDetections = faceapi.resizeResults(detections, displaySize)
-    canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height)
-    faceapi.draw.drawDetections(canvas, resizedDetections)
-    faceapi.draw.drawFaceLandmarks(canvas, resizedDetections)
-    faceapi.draw.drawFaceExpressions(canvas, resizedDetections)
-}, 100)
-
-  })
+    canvas1.getContext('2d').clearRect(0, 0, canvas1.width, canvas1.height)
+    faceapi.draw.drawFaceExpressions(canvas1, resizedDetections)
+    /*
+    faceapi.draw.drawDetections(canvas1, resizedDetections)
+    faceapi.draw.drawFaceLandmarks(canvas1, resizedDetections)
   */
+}, 100)
+})
+  
+*/

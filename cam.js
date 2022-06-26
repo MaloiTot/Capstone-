@@ -1,10 +1,43 @@
 let canvas = document.querySelector("#canvas");
 let context = canvas.getContext("2d");
 let video = document.querySelector("#video");
+let ctx = document.querySelector("#canvas");
+
 
 if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {navigator.mediaDevices.getUserMedia({video: true}).then((stream) => {
     video.srcObject = stream;
-    video.play();
+    Promise.all([
+        faceapi.nets.tinyFaceDetector.loadFromUri('/models'),
+        faceapi.nets.faceLandmark68Net.loadFromUri('/models'),
+        faceapi.nets.faceRecognitionNet.loadFromUri('/models'),
+        faceapi.nets.faceExpressionNet.loadFromUri('/models')
+      ]).then(startVideo)
+
+      function startVideo() {
+        navigator.getUserMedia(
+          { video: {} },
+          stream => video.srcObject = stream,
+          err => console.error(err)
+        )
+      }
+
+      video.addEventListener('play', () => {
+        const ctx = faceapi.createCanvasFromMedia(video)
+        document.body.append(ctx)
+        const displaySize = { width: video.width, height: video.height }
+        faceapi.matchDimensions(ctx, displaySize)
+        setInterval(async () => {
+          const detections = await faceapi.detectAllFaces(video, new faceapi.TinyFaceDetectorOptions()).withFaceLandmarks().withFaceExpressions()
+          const resizedDetections = faceapi.resizeResults(detections, displaySize)
+          canvas1.getContext('2d').clearRect(0, 0, ctx.width, ctx.height)
+          faceapi.draw.drawFaceExpressions(ctx, resizedDetections)
+          /*
+          faceapi.draw.drawDetections(canvas1, resizedDetections)
+          faceapi.draw.drawFaceLandmarks(canvas1, resizedDetections)
+        */
+      }, 100)
+      })
+        
 }); 
 }
 
@@ -45,4 +78,6 @@ setTimeout(()=>{
 })
 
 })
+
+
 

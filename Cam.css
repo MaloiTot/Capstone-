@@ -111,6 +111,11 @@ canvas:hover {
   border: dashed;
 }
 
+.ctx {
+  position: absolute;
+  z-index: 6;
+}
+
 header{
   position: relative;
   left: 0;
